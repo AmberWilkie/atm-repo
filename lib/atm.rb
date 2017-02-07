@@ -6,7 +6,7 @@ attr_accessor :funds
   def withdraw(amount, account)
     case
     when insufficient_funds_in_account?(amount, account) then
-      return
+      { status: true, message: 'insufficient funds', date: Date.today }
     else
       perform_transaction(amount, account)
     end

@@ -3,11 +3,11 @@ attr_accessor :funds
   def initialize
     @funds = 1000
   end
-  def withdraw(amount, account)
+  def withdraw(amount, pin_code, account)
     case
     when insufficient_funds_in_account?(amount, account) then
       { status: true, message: 'insufficient funds', date: Date.today }
-    when insufficient_funds_in_atm?(amount) then
+    when insufficient_funds_in_atm?(amount)
       { status: false, message: 'insufficient funds in atm', date: Date.today }
     else
       perform_transaction(amount, account)
@@ -25,5 +25,5 @@ attr_accessor :funds
    private
   def insufficient_funds_in_atm?(amount)
     @funds < amount
-  end
+end
 end

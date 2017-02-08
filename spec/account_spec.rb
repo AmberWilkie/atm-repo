@@ -17,4 +17,9 @@ require './lib/account.rb'
      expected_date = Date.today.next_year(5).strftime("%m/%y")
      expect(subject.exp_date).to eq expected_date
    end
+
+   it 'is expected to have an :active account status on initialize' do
+    expect(subject.account_status).to eq :active
+   end
+
 end

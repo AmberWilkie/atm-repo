@@ -22,4 +22,8 @@ require './lib/account.rb'
     expect(subject.account_status).to eq :active
    end
 
+   it 'account has been deactivated' do
+    subject.deactivate
+    expect(subject.account_status).to eq :deactivated
+   end
 end

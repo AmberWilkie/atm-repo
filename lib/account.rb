@@ -11,6 +11,10 @@ STANDARD_VALIDITY_YRS = 5
    @account_status = :active
  end
 
+ def deactivate
+   @account_status = :deactivated
+ end
+
 private
 
 def set_exp_date

@@ -1,12 +1,22 @@
 require './lib/account.rb'
 
   describe Account do
-      let(:person) { instance_double('Person', name: 'Felix')}
+      let(:person) {instance_double('Person', name: 'Felix')}
+
+     subject { described_class.new({owner: person}) }
 
    it 'check length of a pin_code' do
      number = 1234
      number_length = Math.log10(number).to_i + 1
      expect(number_length).to eq 4
+   end
+
+   it 'expect to have an owner' do
+     expect(subject.owner).to eq person
+   end
+
+   it 'is expected to raise error if no owner is set' do
+      expect { described_class.new }.to raise_error 'An Account owner is required'
    end
 
    it 'is expected to have balance of 0 on initialize' do

@@ -14,6 +14,10 @@ def create_account
   @account = Account.new(owner: self)
 end
 
+def deposit(cash)
+   cash == 100
+end
+
 private
 
 def set_name(obj)

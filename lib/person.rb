@@ -1,4 +1,5 @@
 require 'account.rb'
+require 'pry'
 
 class Person
 
@@ -15,7 +16,11 @@ def create_account
 end
 
 def deposit(cash)
-   cash == 100
+  if self.account.nil?
+    missing_account
+  else
+    @cash = cash
+  end
 end
 
 private
@@ -27,5 +32,14 @@ end
 def missing_name
   raise 'A name is required'
 end
+
+def no_account(obj)
+  obj == nil ? missing_account : @account = obj
+end
+
+def missing_account
+   raise RuntimeError, 'No account present'
+end
+
 
 end

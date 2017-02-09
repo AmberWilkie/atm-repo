@@ -19,6 +19,7 @@ def deposit(amount)
   @account == nil ? missing_account : deposit_funds(amount)
 end
 
+
 private
 
 def deposit_funds(amount)

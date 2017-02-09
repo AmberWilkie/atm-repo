@@ -11,7 +11,7 @@ def initialize(attrs = {})
 end
 
 def create_account
-
+  @account = Account.new(owner: self)
 end
 
 private
